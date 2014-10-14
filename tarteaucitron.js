@@ -21,7 +21,7 @@ var tarteaucitron = {
             pathToLang = cdn + 'lang/tarteaucitron.' + language + '.js',
             pathToServices = cdn + 'tarteaucitron.services.js',
             linkElement = document.createElement('link');
-        
+
         // Step 1: load css
         linkElement.rel = 'stylesheet';
         linkElement.type = 'text/css';
@@ -55,7 +55,7 @@ var tarteaucitron = {
                         len = arr.length,
                         out = [],
                         obj = {};
- 
+
                     for (i = 0; i < len; i += 1) {
                         if (!obj[arr[i]]) {
                             obj[arr[i]] = {};
@@ -117,12 +117,12 @@ var tarteaucitron = {
                     html += '       </a>';
                     html += '   </div>';
                     html += '   <div class="tarteaucitronAsk">';
-                    html += '       <div id="' + service.key + 'Allowed" class="tarteaucitronAllow" onclick="tarteaucitron.userInterface.respond(this, true);">';
+                    html += '       <button id="' + service.key + 'Allowed" class="tarteaucitronAllow" onclick="tarteaucitron.userInterface.respond(this, true);">';
                     html += '           ' + tarteaucitron.lang.allow;
-                    html += '       </div> ';
-                    html += '       <div id="' + service.key + 'Denied" class="tarteaucitronDeny" onclick="tarteaucitron.userInterface.respond(this, false);">';
+                    html += '       </button> ';
+                    html += '       <button id="' + service.key + 'Denied" class="tarteaucitronDeny" onclick="tarteaucitron.userInterface.respond(this, false);">';
                     html += '           ' + tarteaucitron.lang.deny;
-                    html += '       </div>';
+                    html += '       </button>';
                     html += '   </div>';
                     html += '</div>';
                     html += '<div class="clear"></div>';
@@ -137,14 +137,14 @@ var tarteaucitron = {
                 html += '   <span id="tarteaucitronDisclaimerAlert">';
                 html += '       ' + tarteaucitron.lang.alertBig;
                 html += '   </span>';
-                html += '   <span id="tarteaucitronPersonalize" onclick="tarteaucitron.userInterface.openPanel();">';
+                html += '   <button id="tarteaucitronPersonalize" onclick="tarteaucitron.userInterface.openPanel();">';
                 html += '       ' + tarteaucitron.lang.personalize;
-                html += '   </span>';
-                html += '   <span id="tarteaucitronCloseAlert" onclick="tarteaucitron.userInterface.closeAlert();">';
+                html += '   </button>';
+                html += '   <button id="tarteaucitronCloseAlert" onclick="tarteaucitron.userInterface.closeAlert();">';
                 html += '       ' + tarteaucitron.lang.close;
-                html += '   </span>';
+                html += '   </button>';
                 html += '</div>';
-                
+
                 if (tarteaucitron.showAlertSmall === true) {
                     html += '<div id="tarteaucitronAlertSmall" onclick="tarteaucitron.userInterface.openPanel();">';
                     html += '   <span id="tarteaucitronDot"></span>';
@@ -211,12 +211,12 @@ var tarteaucitron = {
         "respond": function (el, status) {
             "use strict";
             var key = el.id.replace(new RegExp("(Eng[0-9]+|Allow|Deni)ed", "g"), '');
-        
+
             // return if same state
             if (tarteaucitron.state[key] === status) {
                 return;
             }
-        
+
             // if not already launched... launch the service
             if (status === true) {
                 if (tarteaucitron.launch[key] !== true) {
@@ -248,7 +248,7 @@ var tarteaucitron = {
                 tarteaucitron.userInterface.css(key + 'Allowed', 'backgroundColor', gray);
                 tarteaucitron.userInterface.css(key + 'Denied', 'backgroundColor', redDark);
             }
-        
+
             // check if all services are allowed
             for (index = 0; index < tarteaucitron.job.length; index += 1) {
                 if (tarteaucitron.state[tarteaucitron.job[index]] === false) {
@@ -256,7 +256,7 @@ var tarteaucitron = {
                     break;
                 }
             }
-        
+
             if (allAllowed) {
                 tarteaucitron.userInterface.css(c + 'Dot', 'backgroundColor', greenDark);
             } else {
@@ -324,7 +324,7 @@ var tarteaucitron = {
         "purge": function (arr) {
             "use strict";
             var i;
-            
+
             for (i = 0; i < arr.length; i += 1) {
                 document.cookie = arr[i] + '=; expires=Thu, 01 Jan 2000 00:00:00 GMT; path=/;';
                 document.cookie = arr[i] + '=; expires=Thu, 01 Jan 2000 00:00:00 GMT; path=/; domain=.' + location.hostname + ';';
@@ -335,13 +335,13 @@ var tarteaucitron = {
     "getLanguage": function () {
         "use strict";
         if (!navigator) { return 'en'; }
-        
+
         var availableLanguages = 'en,fr',
             defaultLanguage = 'en',
             lang = navigator.language || navigator.browserLanguage ||
                 navigator.systemLanguage || navigator.userLang || null,
             userLanguage = lang.substr(0, 2);
-        
+
         if (availableLanguages.indexOf(userLanguage) === -1) {
             return defaultLanguage;
         }
@@ -351,7 +351,7 @@ var tarteaucitron = {
         "use strict";
         var script = document.createElement('script'),
             done = false;
-        
+
         script.type = 'text/javascript';
         script.id = (id !== undefined) ? id : '';
         script.async = true;
@@ -393,16 +393,16 @@ var tarteaucitron = {
         "use strict";
         var html = '',
             r = Math.floor(Math.random() * 100000);
-                
+
         html += '<div class="tac_activate">';
         html += '   <div class="tac_float">';
         html += '      <b>' + id + '</b> ' + tarteaucitron.lang.fallback + '<br/>';
-        html += '      <div class="tarteaucitronAllow" id="Eng' + r + 'ed' + id + '" onclick="tarteaucitron.userInterface.respond(this, true);">';
+        html += '      <button class="tarteaucitronAllow" id="Eng' + r + 'ed' + id + '" onclick="tarteaucitron.userInterface.respond(this, true);">';
         html += '          ' + tarteaucitron.lang.allow;
-        html += '       </div>';
+        html += '       </button>';
         html += '   </div>';
         html += '</div>';
-        
+
         return html;
     }
 };
