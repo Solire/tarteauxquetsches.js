@@ -271,6 +271,10 @@ var tarteaucitron = {
 
             // setting hash tag
             document.location.hash = 'tarteaucitron';
+
+            // keyboard navigation
+            var focusId = tarteaucitron.job[0] + 'Allowed';
+            document.getElementById(focusId).focus();
         },
         "closePanel": function () {
             "use strict";
@@ -282,6 +286,9 @@ var tarteaucitron = {
             var c = 'tarteaucitron';
             tarteaucitron.userInterface.css(c + 'AlertSmall', 'display', 'none');
             tarteaucitron.userInterface.css(c + 'AlertBig',   'display', 'block');
+
+            // keyboard navigation
+            document.getElementById('tarteaucitronPersonalize').focus();
         },
         "closeAlert": function () {
             "use strict";
