@@ -8,11 +8,13 @@ tarteaucitron.lang = {
     "info": "Transparence sur les cookies",
     "disclaimer": "En autorisant ces services tiers, vous acceptez le dépôt et la lecture de cookies et l'utilisation de technologies de suivi nécessaires à leur bon fonctionnement.",
     "allow": "Autoriser",
+    "allowTitle": "Autoriser les cookies pour",
     "deny": "Interdire",
+    "denyTitle": "Interdire les cookies pour",
     "more": "En savoir plus",
     "source": "Voir le site officiel",
     "credit": "Gestion des cookies par tarteaucitron.js",
-    
+
     "fallback": "est désactivé.",
 
     "ads": {
