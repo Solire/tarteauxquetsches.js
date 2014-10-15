@@ -90,9 +90,9 @@ var tarteaucitron = {
                 html += '   <div id="tarteaucitronClosePanel" onclick="tarteaucitron.userInterface.closePanel();">';
                 html += '       ' + tarteaucitron.lang.close;
                 html += '   </div>';
-                html += '   <div id="tarteaucitronInfo">';
+                html += '   <h2 id="tarteaucitronInfo">';
                 html += '       ' + tarteaucitron.lang.info;
-                html += '   </div>';
+                html += '   </h2>';
                 html += '   <div id="tarteaucitronServices">';
 
                 for (index = 0; index < tarteaucitron.job.length; index += 1) {
@@ -117,10 +117,10 @@ var tarteaucitron = {
                     html += '       </a>';
                     html += '   </div>';
                     html += '   <div class="tarteaucitronAsk">';
-                    html += '       <button id="' + service.key + 'Allowed" class="tarteaucitronAllow" onclick="tarteaucitron.userInterface.respond(this, true);">';
+                    html += '       <button id="' + service.key + 'Allowed" class="tarteaucitronAllow" title="' + tarteaucitron.lang.allowTitle + ' ' + service.name + '" onclick="tarteaucitron.userInterface.respond(this, true);">';
                     html += '           ' + tarteaucitron.lang.allow;
                     html += '       </button> ';
-                    html += '       <button id="' + service.key + 'Denied" class="tarteaucitronDeny" onclick="tarteaucitron.userInterface.respond(this, false);">';
+                    html += '       <button id="' + service.key + 'Denied" class="tarteaucitronDeny" title="' + tarteaucitron.lang.denyTitle + ' ' + service.name + '" onclick="tarteaucitron.userInterface.respond(this, false);">';
                     html += '           ' + tarteaucitron.lang.deny;
                     html += '       </button>';
                     html += '   </div>';
@@ -129,9 +129,9 @@ var tarteaucitron = {
                 }
 
                 html += '   </div>';
-                html += '   <div id="tarteaucitronDisclaimer">';
+                html += '   <h6 id="tarteaucitronDisclaimer">';
                 html += '       ' + tarteaucitron.lang.disclaimer + '<br/><a href="https://opt-out.ferank.eu/" rel="nofollow" target="_blank">' + tarteaucitron.lang.credit + '</a>';
-                html += '   </div>';
+                html += '   </h6>';
                 html += '</div>';
                 html += '<div id="tarteaucitronAlertBig">';
                 html += '   <span id="tarteaucitronDisclaimerAlert">';
